@@ -1,0 +1,15 @@
+{
+  "name": "ticket-buy-app",
+  "version": "1.0.0",
+  "description": "Simple app to buy tickets and register in RDS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.11.3"
+  },
+  "author": "Dariu",
+  "license": "MIT"
+}
