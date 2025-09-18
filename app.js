@@ -48,7 +48,7 @@ app.post('/buy', express.json(), (req, res) => {
 
 app.get('/api/tickets', (req, res) => {
   res.json([
-    { id: 1, event: 'Concert Night', price: 25, available: 100 },
+    { id: 1, event: 'Live Concert', price: 25, available: 100 },
     { id: 2, event: 'Tech Conference', price: 50, available: 75 },
     { id: 3, event: 'Movie Premiere', price: 15, available: 200 }
   ]);
@@ -68,4 +68,5 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Ticket app running on port ${port}`);
   console.log(`Access at: http://localhost:${port}`);
+
 });
