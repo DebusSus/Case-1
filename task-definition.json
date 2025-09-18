@@ -7,25 +7,44 @@
   "executionRoleArn": "arn:aws:iam::253137917008:role/ecs-task-execution-role",
   "taskRoleArn": "arn:aws:iam::253137917008:role/ecs-task-execution-role",
   "containerDefinitions": [
-    {
-      "name": "ticket-container",
-      "image": "nginx:latest",
-      "portMappings": [
-        {
-          "containerPort": 80,
-          "hostPort": 80,
-          "protocol": "tcp"
-        }
-      ],
-      "essential": true,
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/ticket-app",
-          "awslogs-region": "eu-central-1",
-          "awslogs-stream-prefix": "ecs"
-        }
+  {
+    "name": "ticket-container",
+    "image": "nginx:latest",
+    "portMappings": [
+      {
+        "containerPort": 3000,
+        "hostPort": 3000,
+        "protocol": "tcp"
+      }
+    ],
+    "essential": true,
+    "environment": [
+      {
+        "name": "DB_HOST",
+        "value": "terraform-20250918132830393000000002.crwksq0muoj6.eu-central-1.rds.amazonaws.com"
+      },
+      {
+        "name": "DB_USER",
+        "value": "admin"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "value": "dariusdbpass876"
+      },
+      {
+        "name": "DB_NAME",
+        "value": "ticketdb"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/ecs/ticket-app",
+        "awslogs-region": "eu-central-1",
+        "awslogs-stream-prefix": "ecs"
       }
     }
+  }
+]
   ]
 }
